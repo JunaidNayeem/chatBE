@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Online Teaching Platform - Real-time Chat</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <!-- Main Teaching Platform Interface -->
+    <div class="main-platform">
+        <header class="platform-header">
+            <div class="container flex justify-between items-center">
+                <div class="meeting-info">
+                    <h1>Advanced React Development Session</h1>
+                    <p class="meeting-id">Meeting ID: <span id="meetingId">MTG-2025-001</span></p>
+                </div>
+                <div class="platform-controls">
+                    <div class="role-switcher">
+                        <label class="form-label">Current Role:</label>
+                        <select id="roleSelector" class="form-control">
+                            <option value="teacher">Prof. John Wilson (Teacher)</option>
+                            <option value="student">Sarah Johnson (Student)</option>
+                        </select>
+                    </div>
+                    <div class="connection-status" id="connectionStatus">
+                        <i class="fas fa-circle status-indicator"></i>
+                        <span>Connected</span>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <main class="platform-content">
+            <div class="container">
+                <div class="teaching-interface">
+                    <div class="video-area">
+                        <div class="video-placeholder">
+                            <i class="fas fa-video"></i>
+                            <h3>Video Conference Area</h3>
+                            <p>This is where the main teaching session would take place</p>
+                        </div>
+                    </div>
+                    <div class="content-area">
+                        <div class="whiteboard-placeholder">
+                            <i class="fas fa-chalkboard-teacher"></i>
+                            <h3>Interactive Whiteboard</h3>
+                            <p>Shared teaching materials and interactive content</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Floating Chat System -->
+    <div class="chat-system">
+        <!-- Chat Icon Button -->
+        <button class="chat-icon-btn" id="chatToggleBtn">
+            <i class="fas fa-comments"></i>
+            <span class="notification-badge hidden" id="notificationBadge">0</span>
+        </button>
+
+        <!-- Chat Popup Window -->
+        <div class="chat-popup hidden" id="chatPopup">
+            <div class="chat-header">
+                <div class="chat-title">
+                    <h3>Live Chat</h3>
+                    <span class="chat-subtitle">Meeting: <span id="chatMeetingId">MTG-2025-001</span></span>
+                </div>
+                <div class="chat-actions">
+                    <div class="user-status" id="userStatus">
+                        <i class="fas fa-circle online-indicator"></i>
+                        <span>Online</span>
+                    </div>
+                    <button class="chat-close-btn" id="chatCloseBtn">
+                        <i class="fas fa-times"></i>
+                    </button>
+                </div>
+            </div>
+
+            <div class="chat-messages" id="chatMessages">
+                <!-- Messages will be dynamically inserted here -->
+            </div>
+
+            <div class="typing-indicator hidden" id="typingIndicator">
+                <div class="typing-dots">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+                <span class="typing-text" id="typingText">Someone is typing...</span>
+            </div>
+
+            <div class="chat-input-area">
+                <div class="chat-input-container">
+                    <input type="text" class="chat-input" id="messageInput" placeholder="Type your message..." maxlength="1000">
+                    <button class="send-btn" id="sendBtn">
+                        <i class="fas fa-paper-plane"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Message Template (Hidden) -->
+    <template id="messageTemplate">
+        <div class="message">
+            <div class="message-header">
+                <span class="sender-name"></span>
+                <span class="sender-role"></span>
+                <span class="message-time"></span>
+            </div>
+            <div class="message-content"></div>
+        </div>
+    </template>
+
+    <script src="app.js"></script>
+</body>
+</html>
